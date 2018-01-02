@@ -21,5 +21,6 @@ public class myNetworkManager : NetworkManager {
     {
         base.OnClientConnect(conn);
         Debug.Log(Time.timeSinceLevelLoad + " Client connected to IP:" + conn.address);
+        Debug.Log(Network.player.ipAddress);
     }
 }
