@@ -5,6 +5,12 @@ using UnityEngine.Networking;
 
 public class myNetworkManager : NetworkManager {
 
+    public void MyStartHost()
+    {
+        StartHost();
+        Debug.Log(Time.timeSinceLevelLoad + " Host started");
+    }
+
     public override void OnStartHost()
     {
         base.OnStartHost();
