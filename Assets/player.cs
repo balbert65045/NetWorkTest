@@ -17,8 +17,9 @@ public class player : NetworkBehaviour {
             return;
         }
 
+        float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.left * h);
+        transform.Translate(Vector3.left * h + Vector3.forward * v);
 
 
 	}
