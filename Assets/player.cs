@@ -9,9 +9,21 @@ public class player : NetworkBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public override void OnStartLocalPlayer()
+    {
+        Camera[] cameras = FindObjectsOfType<Camera>();
+        foreach (Camera camera in cameras)
+        {
+            if (camera != GetComponentInChildren<Camera>())
+            {
+                camera.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (!isLocalPlayer)
         {
             return;
