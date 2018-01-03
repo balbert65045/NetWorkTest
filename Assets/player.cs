@@ -12,6 +12,15 @@ public class player : NetworkBehaviour {
 
     public override void OnStartLocalPlayer()
     {
+        player[] players = FindObjectsOfType<player>();
+        foreach (player player in players)
+        {
+            player.DisableOtherCameras();
+        }
+    }
+
+    public void DisableOtherCameras()
+    {
         Camera[] cameras = FindObjectsOfType<Camera>();
         foreach (Camera camera in cameras)
         {
