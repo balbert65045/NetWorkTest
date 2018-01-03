@@ -12,24 +12,9 @@ public class player : NetworkBehaviour {
 
     public override void OnStartLocalPlayer()
     {
-        player[] players = FindObjectsOfType<player>();
-        foreach (player player in players)
-        {
-            player.DisableOtherCameras();
-        }
+        GetComponentInChildren<Camera>().enabled = true;
     }
 
-    public void DisableOtherCameras()
-    {
-        Camera[] cameras = FindObjectsOfType<Camera>();
-        foreach (Camera camera in cameras)
-        {
-            if (camera != GetComponentInChildren<Camera>())
-            {
-                camera.gameObject.SetActive(false);
-            }
-        }
-    }
 
     // Update is called once per frame
     void Update () {
